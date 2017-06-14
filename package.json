@@ -1,0 +1,24 @@
+{
+  "name": "node-express-prac",
+  "version": "1.0.0",
+  "description": "Buiding a website using node and express",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "node app/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharmaraghav260/Node-Express-prac.git"
+  },
+  "author": "Raghav Sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharmaraghav260/Node-Express-prac/issues"
+  },
+  "homepage": "https://github.com/sharmaraghav260/Node-Express-prac#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0"
+  }
+}
