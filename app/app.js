@@ -1,13 +1,31 @@
+/*jshint esversion: 6 */
 //var http = require('http');
 var express = require('express');
 var app = express();
+var dataFile = require('./data/data.json');
+
+app.set('port', process.env.PORT || 3000);
+
+var port = app.get('port');
 
 app.get('/', function(req, res) {
-  res.send('<h1> Express Works</h1>');
+  var info = "";
+  dataFile.speakers.forEach(function(item) {
+    info += `
+    <li>
+      <h2> ${item.name} </h2>
+      <p > ${item.summary}</p>
+    </li>
+    `;
+  });
+  res.send(`
+    <h1> Express Works</h1>
+    ${info}
+  `);
 });
 
-var server = app.listen(3000, function() {
-  console.log('listening on port 3000');
+var server = app.listen(port, function() {
+  console.log('listening on port ' + port);
 });
 
 // var myServer = http.createServer(function(req, res) {
