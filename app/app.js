@@ -5,40 +5,12 @@ var app = express();
 var dataFile = require('./data/data.json');
 
 app.set('port', process.env.PORT || 3000);
+app.set('appData', dataFile);
 
 var port = app.get('port');
 
-app.get('/', function(req, res) {
-  res.send(`
-    <h1> Hello Guys,</h1>
-    <p> Welcome to an application built with Node and Express.</p>
-  `);
-});
-
-app.get('/speakers', function(req, res) {
-  var info = "";
-  dataFile.speakers.forEach(function(item) {
-    info += `
-    <li>
-      <h2> ${item.name} </h2>
-      <p > ${item.summary}</p>
-    </li>
-    `;
-  });
-  res.send(`
-    <h1> Express Works</h1>
-    ${info}
-  `);
-});
-
-app.get('/speakers/:speakerid', function(req, res) {
-  var speaker = dataFile.speakers[req.params.speakerid];
-  res.send(`
-    <h1>${speaker.title}</h1>
-    <h2>with ${speaker.name}</h2>
-    <p>${speaker.summary}</p>
-  `);
-});
+app.use(require('./routes/index'));
+app.use(require('./routes/speakers'));
 
 var server = app.listen(port, function() {
   console.log('listening on port ' + port);
