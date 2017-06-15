@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sharmaraghav260/Node-Express-prac#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "reload": "^1.1.5"
   }
 }
